@@ -1,10 +1,7 @@
-#hackbright day 19
-#sql web app exercise
-#Gowri and Eva team
+#DeveloperDiary
 
-#Assignment definition: Users are students of hackbright
-# Posts are ideas for hackbright improvements or speakers
-# votes represent the user's ability to show support for an idea
+#Sample Web Application
+#July 2014, Gowri Grewal
 
 
 
