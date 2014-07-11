@@ -1,12 +1,5 @@
-#hackbright day 19
-#sql web app exercise
-#Gowri and Eva team
-
-#Assignment definition: Users are students of hackbright
-# Posts are ideas for hackbright improvements or speakers
-# votes represent the user's ability to show support for an idea
-
-
+#Developer Diary
+#Sample Web App by RunnerMom
 
 import sqlite3
 import traceback

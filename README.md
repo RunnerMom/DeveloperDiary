@@ -15,3 +15,7 @@ Application has 3 tables:
 1. Users
 2. Posts
 3. Votes
+
+==========
+Run this app by cloning the repo, then
+>run app.py
