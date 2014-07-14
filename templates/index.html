@@ -1,23 +1,12 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1523577347863727', #DeveloperDiary
-          xfbml      : true,
-          version    : 'v2.0'
-        });
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-</script>
+<div
+	class="fb-like"
+	data-send="true"
+	data-width="450"
+	data-show-faces="true">
+</div>
 <div class="container">
 	<div class="row">
 		<div class="span12">
@@ -25,6 +14,12 @@
 		</div>
 		<div class="span4">
 			<h3><i class="icon-plus-sign"></i> Add Post</h3>
+			<div
+				class="fb-like"
+				data-send="true"
+				data-width="450"
+				data-show-faces="true">
+			</div>
 			<form action="/add_post">
 				<input type="text" name="title" placeholder="Title" />
 				<br />
@@ -39,7 +34,7 @@
 		<div class="span8">
 			{% if posts %}
 			{% for post in posts %}
-				<div class="post">
+				<div class="post">		
 					<h3>{{post[1]}}</h3>
 					<span>Author: {{post[3]}}</span>
 					<br />
