@@ -25,7 +25,22 @@ def add_post():
 
 @app.route("/get_user")
 def get_user():
-    # model.connect_to_db()
+
+    token = request.args.get("token")
+    graph = facebook.GraphAPI(token)
+    profile = graph.get_object("me")
+    picture = graph.get_object("me", fields="picture")
+    photo = picture['picture']['data']['url']
+    friends = graph.get_connections("me", "friends")
+    username = profile['username']
+    fb_uid = profile['id']
+    friendlist = friends['data']
+    return render_template("index.html", username=username, fb_uid=fb_uid, photo = photo, friendlist=friendlist)
+
+
+@app.route("/add_user")
+def add_user():
+    model.connect_to_db()
     token = request.args.get("token")
     graph = facebook.GraphAPI(token)
     profile = graph.get_object("me")
@@ -33,10 +48,9 @@ def get_user():
     username = profile['username']
     fb_uid = profile['id']
     friendlist = friends['data']
-    return render_template("index.html", username=username, fb_uid=fb_uid, friendlist=friendlist)
-    # user = model.User(username, fb_uid)
-    # user.add_user_to_db()
-    # return main()
+    user = model.User(username, fb_uid)
+    user.add_user_to_db()
+    return main()
 
 if __name__ == "__main__":
     app.run(debug=True)

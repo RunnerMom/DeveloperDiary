@@ -9,12 +9,6 @@
 		</div>
 		<div class="span4">
 			<h3><i class="icon-plus-sign"></i> Add Post</h3>
-			<div
-				class="fb-like"
-				data-send="true"
-				data-width="450"
-				data-show-faces="true">
-			</div>
 			<form action="/add_post">
 				<input type="text" name="title" placeholder="Title" />
 				<br />
@@ -31,18 +25,20 @@
 				<br />
 				<input class="btn" type="submit" value="Get Info" />
 			</form>
+		</div>
 			{% if username %}
-			
+
+		<div class="span8">
 				<div class="user">		
-					
+					<span><img border="0" src={{photo}}></span>
 					<span>Username: {{username}}</span>
-					<br />
+					<p>
 					<span>Facebook UID: {{fb_uid}}</span>
 					<p></p>
 					<h4><span>Friends</span></h4>
 
 					{% for friend in friendlist %}
-					<span>{{friend['name']}}</span>
+					<span>{{friend['name']}}:  {{friend['id']}}</span>
 					<p></p>
 					{% endfor %}
 				</div>

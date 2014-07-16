@@ -6,13 +6,17 @@
 import os
 import facebook
 
-token="CAACEdEose0cBAAxtuBGalsZC2aZAZBm2x1L2zixtZCA3zbjfZAiukpbBZCjI6SNkR95jekixh64mWtw4qxZBLYxyZC677nSMor74jxmzxli7W4OuHtSugXiyBZCxK88UbSTyu7YUg4eYyFIMuHAzwmWlqDZAUggPgSAk0y9iphvYqHZBl1dVkvBr0vtt1nil9a9Lv1LCS2ZBmPyon7wAYfmVDzyI"
+token="CAACEdEose0cBABDqMM2pDPimbnvrvfINC0BFCHfEaOS1D7SXCNjIuOgwEmyFrluI3qCg0hs4HEZA4CzoHTHwTlzNKznl9wPgM0BCGhsOqoDqZCfL7LkUGI0Y1okjJ4BoZAZC2z4vtWSlPZBaCLCuZAyDhq1UhuKKyWWRMXH7j2bTP5uc8oZCV627sZBKp9sT0vNpkGZBUBfZBXNHZAeg028DFyM"
 
 #token=os.environ.get("FACEBOOK_ACCESS_TOKEN")
 graph = facebook.GraphAPI(token)
 profile = graph.get_object("me")
-friends = graph.get_connections("me", "friends")
-friendslist = friends['data']
+picture = graph.get_object("me", fields="picture")
+photo = picture['picture']['data']['url']
 
-for friend in friendslist:
-	print friend['name']
+print photo
+# friends = graph.get_connections("me", "friends")
+# friendslist = friends['data']
+
+# for friend in friendslist:
+# 	print friend['name']
