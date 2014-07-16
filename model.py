@@ -8,13 +8,14 @@ DB = None
 CONN = None
 
 class User(object):
-    def __init__(self, username, fb_uid):
-        self.username = username
+    def __init__(self, name, fb_uid, photo):
+        self.name = name
         self.fb_uid = fb_uid
+        self.photo = photo
 
     def add_user_to_db(self):
         sql = """INSERT into Users VALUES (?, ?, ?)"""   #expects 3 args
-        DB.execute(sql, (self.username, self.fb_uid))
+        DB.execute(sql, (self.username, self.fb_uid, self.photo))
         CONN.commit()
 
     # def get_student_by_github(github):
