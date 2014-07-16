@@ -18,4 +18,5 @@ Application has 3 tables:
 
 ==========
 Run this app by cloning the repo, then
->run app.py
+>python app.py  --> will run just the basic app
+>python app2.py --> takes access token as input, returns username and fb_uid

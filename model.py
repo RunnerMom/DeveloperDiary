@@ -7,25 +7,24 @@ import traceback
 DB = None
 CONN = None
 
-class Student(object):
-    def __init__(self, first_name, last_name, github):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.github = github
+class User(object):
+    def __init__(self, username, fb_uid):
+        self.username = username
+        self.fb_uid = fb_uid
 
-    def add_student_to_db(self):
-        sql = """INSERT into Students VALUES (?, ?, ?)"""   #expects 3 args
-        DB.execute(sql, (self.first_name, self.last_name, self.github))
+    def add_user_to_db(self):
+        sql = """INSERT into Users VALUES (?, ?, ?)"""   #expects 3 args
+        DB.execute(sql, (self.username, self.fb_uid))
         CONN.commit()
 
-    def get_student_by_github(github):
-        sql = """SELECT first_name, last_name, github 
-        FROM Students
-        WHERE github = ?"""
-        DB.execute(sql, (github,))
-        record = DB.fetchone()
+    # def get_student_by_github(github):
+    #     sql = """SELECT first_name, last_name, github 
+    #     FROM Students
+    #     WHERE github = ?"""
+    #     DB.execute(sql, (github,))
+    #     record = DB.fetchone()
 
-        return record
+    #     return record
 
 
 # get post by title
@@ -41,26 +40,26 @@ class Post(object):
         DB.execute(sql, (self.title, self.body, self.author, self.timestamp))
         CONN.commit()
 
-    def get_post_id_by_title(self):
-        sql = """SELECT id FROM Posts WHERE title = ?"""
-        DB.execute(sql, (self.title,))
-        record = DB.fetchone()
+    # def get_post_id_by_title(self):
+    #     sql = """SELECT id FROM Posts WHERE title = ?"""
+    #     DB.execute(sql, (self.title,))
+    #     record = DB.fetchone()
 
-        return record        
+    #     return record        
 
-    def get_post_by_title(self):
-        sql = """SELECT * FROM Posts WHERE title = ?"""
-        DB.execute(sql, (self.title,))
-        record = DB.fetchone()
+    # def get_post_by_title(self):
+    #     sql = """SELECT * FROM Posts WHERE title = ?"""
+    #     DB.execute(sql, (self.title,))
+    #     record = DB.fetchone()
 
-        return record
+    #     return record
 
-    def get_posts_by_author(self):
-        sql = """SELECT * FROM Posts WHERE author = ?"""
-        DB.execute(sql, (self.author,))
-        records = DB.fetchall()
+    # def get_posts_by_author(self):
+    #     sql = """SELECT * FROM Posts WHERE author = ?"""
+    #     DB.execute(sql, (self.author,))
+    #     records = DB.fetchall()
 
-        return records
+    #     return records
 
 
 class Vote(object):

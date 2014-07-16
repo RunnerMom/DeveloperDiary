@@ -20,7 +20,17 @@ def add_post():
     timestamp = datetime.datetime.now()
     post = model.Post(title, body, author, timestamp)
     post.add_post_to_db()
+    return main()
 
+@app.route("/get_user")
+def get_user():
+    model.connect_to_db()
+    token = request.args.get("token")
+    body = request.args.get("body")
+    author = request.args.get("author")
+    timestamp = datetime.datetime.now()
+    post = model.Post(title, body, author, timestamp)
+    post.add_post_to_db()
     return main()
 
 if __name__ == "__main__":
