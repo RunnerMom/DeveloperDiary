@@ -39,6 +39,12 @@
 					<br />
 					<span>Facebook UID: {{fb_uid}}</span>
 					<p></p>
+					<h4><span>Friends</span></h4>
+
+					{% for friend in friendlist %}
+					<span>{{friend['name']}}</span>
+					<p></p>
+					{% endfor %}
 				</div>
 			
 			{% endif %}

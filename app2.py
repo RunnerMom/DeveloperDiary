@@ -29,10 +29,11 @@ def get_user():
     token = request.args.get("token")
     graph = facebook.GraphAPI(token)
     profile = graph.get_object("me")
+    friends = graph.get_connections("me", "friends")
     username = profile['username']
     fb_uid = profile['id']
-    print username, fb_uid
-    return render_template("index.html", username=username, fb_uid=fb_uid)
+    friendlist = friends['data']
+    return render_template("index.html", username=username, fb_uid=fb_uid, friendlist=friendlist)
     # user = model.User(username, fb_uid)
     # user.add_user_to_db()
     # return main()

@@ -6,10 +6,13 @@
 import os
 import facebook
 
-token="CAACEdEose0cBAPuqvGGTZAPav8RAKHIEUvTZANRyLEWmtv42snDlUQ7sWlXD0kEO4JEk8UaepUWcUERNGasx7IAGf7wTyBcP4xJLhMGYXVSqxwBbAFiBiMWVQ9Y8K9QEZCtCJBZAyF98xjhEoF9ULyns0WOQYn8DAG2S8GWjxc12NF9TwIXaxKuEALguuKU2D4RLwZCEDthPjw0yp6ulP"
+token="CAACEdEose0cBAAxtuBGalsZC2aZAZBm2x1L2zixtZCA3zbjfZAiukpbBZCjI6SNkR95jekixh64mWtw4qxZBLYxyZC677nSMor74jxmzxli7W4OuHtSugXiyBZCxK88UbSTyu7YUg4eYyFIMuHAzwmWlqDZAUggPgSAk0y9iphvYqHZBl1dVkvBr0vtt1nil9a9Lv1LCS2ZBmPyon7wAYfmVDzyI"
 
 #token=os.environ.get("FACEBOOK_ACCESS_TOKEN")
 graph = facebook.GraphAPI(token)
 profile = graph.get_object("me")
 friends = graph.get_connections("me", "friends")
+friendslist = friends['data']
 
+for friend in friendslist:
+	print friend['name']
